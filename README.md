@@ -24,23 +24,36 @@ In some case you can give a weight to the edges. This number can represent physi
 ###### Vertices
 In most situations a vertex represents some real-world object, for example if it represents a city it may need store the name of the city. Thus, it is convenient tp represent a vertex by object of a vertex class.
 
-> public class Vertex {
->  public string id; // Label
->  public float x; // Horizontal location on screen
->  public float y; // Vertical location on screen
->
->  // Construcutor
->  public Vertex(string id, float x, float y)
->  {
-    this.id = id;
-    this.x = x;
-    this.y = y;
+public class Vertex {
+
+    public string id; // Label
+    
+    public float x; // Horizontal location on screen
+
+    public float y; // Vertical location on screen
+
+    // Construcutor
+
+    public Vertex(string id, float x, float y)
+
+    {
+
+        this.id = id;
+    
+        this.x = x;
+    
+        this.y = y;
+    
   }
 
   public override string ToString()
+  
   {
+  
     return (id + " - " + x.ToString() + " - " + y.ToString());
+    
   }
+  
 }
 
 Vertex object can be places in an array; however in our case I will use a list collection. The List<T> class has properties very similar to C# arrays, one key advantage is it can grow and shrink as the number of stored objects changes. The List<T> class is contained with the System.Collections.Generic namespace. The declaration would be something like this:
