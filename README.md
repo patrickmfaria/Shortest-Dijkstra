@@ -141,7 +141,7 @@ Below I show how a Dikstra's algorithm class would be implemented.
             {
             
             // For each smallset Vertex
-                 
+            
             Vertex smallest = ExtractSmallest();
             
             // Get the adjacents
