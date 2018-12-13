@@ -139,7 +139,7 @@ Below I show how a Dikstra's algorithm class would be implemented.
             while (Vertices.Count > 0)
           
             {
-              
+            
             // For each smallset Vertex
                  
             Vertex smallest = ExtractSmallest();
