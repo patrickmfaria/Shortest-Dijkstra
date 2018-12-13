@@ -151,30 +151,30 @@ Below I show how a Dikstra's algorithm class would be implemented.
             // for each adjacent Vertex calculate the distance
 
             int size = adjacentVertices.Count;
-
-            for (int i = 0; i < size; ++i)
-             
-            {
-             
+            
+            for (int i = 0; i < size; ++i)
+            
+            {
+            
                 Vertex adjacent = adjacentVertices.ElementAt(i);
+                
+                float distance = Distance(smallest, adjacent) + smallest.distanceFromStart;
+                
+                if (distance < adjacent.distanceFromStart)
+                
+                {
+                
+                    adjacent.distanceFromStart = distance;
+                    
+                    adjacent.previous = smallest;
+                    
+                 }
                  
-                float distance = Distance(smallest, adjacent) + smallest.distanceFromStart;
-                 
-                if (distance < adjacent.distanceFromStart)
-                 
-                {
-
-                    adjacent.distanceFromStart = distance;
-
-                    adjacent.previous = smallest;
-
-                }
-
-            }
-
-         }
-
-      }
+             }
+             
+         }
+         
+     }
 
      …
 
