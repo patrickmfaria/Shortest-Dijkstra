@@ -43,12 +43,10 @@ public class Vertex {
         this.x = x;
     
         this.y = y;
-    
+        
   }
-
-  public override string ToString()
   
-  {
+  public override string ToString() {
   
     return (id + " - " + x.ToString() + " - " + y.ToString());
     
@@ -65,21 +63,32 @@ public List<Vertex> Vertices;
 As you noticed graphs doesn't have a rigid organization as a tree. In a binary tree each node has a maximum two children, a graph each vertex can be connected to several other vertices. To model this free-form organization we need a different approach, two methods are commonly used for graphs: the adjacency matrix and the adjacency list. I chosen the second option for obvious reasons, it is simply dynamic. An easy way to implement an edge object is to model a class that the two vertices and the distance and additional cost between them. You can understand the cost as heuristic information, for example the one edge which represents an avenue with tree traffic lights can have a cost great than another one representing a parallel avenue with the same distance however with only one traffic light.
 
 public class Edge
-{
-  public Vertex Vertex1; // Vertex one
-  public Vertex Vertex2; // Vertex two
-  public float Distance; // DIstance or similar
-  public float Cost; // Cost or multiplier factor
-  
-  // Contructor
-  public Edge(Vertex Vertex1, Vertex Vertex2, float distance, float cost)
-  {
-    this.Vertex1 = Vertex1;
-    this.Vertex2 = Vertex2;
-    this.Distance = distance;
-    this.Cost = cost;
-  } 
 
+{
+    public Vertex Vertex1; // Vertex one
+    
+    public Vertex Vertex2; // Vertex two
+    
+    public float Distance; // DIstance or similar
+    
+    public float Cost; // Cost or multiplier factor
+    
+    // Contructor
+    
+    public Edge(Vertex Vertex1, Vertex Vertex2, float distance, float cost)
+    
+    {
+    
+        this.Vertex1 = Vertex1;
+        
+        this.Vertex2 = Vertex2;
+        
+        this.Distance = distance;
+        
+        this.Cost = cost;
+        
+    }
+    
 }
 
 ###### Adjacency List
@@ -103,27 +112,41 @@ We use Dijkstra's algorithm by creating a table to store known distances from th
 Below I show how a Dikstra's algorithm class would be implemented.
 
 class Dijkstra
+
 {
-   public List<Vertex> Vertices;
-   public List<Edge> edges;
 
-   // Constructor
-   public Dijkstra()
-   {
-         Vertices = new List<Vertex>(); // Holds the Vertices
-         edges = new List<Edge>(); // Holds the connections
-    }
+    public List<Vertex> Vertices;
+    
+    public List<Edge> edges;
 
-    // Dijkstra calculation algorithm
-    public void Execute()
-    {
+    // Constructor
+    
+    public Dijkstra()
+    
+    {
+    
+        Vertices = new List<Vertex>(); // Holds the Vertices
+        
+        edges = new List<Edge>(); // Holds the connections
+        
+     }
+     
+     // Dijkstra calculation algorithm
+     
+     public void Execute()
+     {
+     
           while (Vertices.Count > 0)
           {
-              // For each smallset Vertex
-              Vertex smallest = ExtractSmallest();
-             // Get the adjacents
+              
+              // For each smallset Vertex
+              
+              Vertex smallest = ExtractSmallest();
+             
+              // Get the adjacents
 
-             List<Vertex> adjacentVertices = AdjacentRemainingVertices(smallest);
+              List<Vertex> adjacentVertices = AdjacentRemainingVertices(smallest);
+              
              // for each adjacent Vertex calculate the distance
 
              int size = adjacentVertices.Count;
@@ -131,8 +154,11 @@ class Dijkstra
              for (int i = 0; i < size; ++i)
              {
                  Vertex adjacent = adjacentVertices.ElementAt(i);
+                 
                  float distance = Distance(smallest, adjacent) + smallest.distanceFromStart;
+                 
                  if (distance < adjacent.distanceFromStart)
+                 
                  {
 
                      adjacent.distanceFromStart = distance;
