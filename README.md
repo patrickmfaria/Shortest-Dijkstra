@@ -46,50 +46,50 @@ public class Vertex {
         
   }
   
-  public override string ToString() {
+    Public override string ToString() {
   
-    return (id + " - " + x.ToString() + " - " + y.ToString());
+        return (id + " - " + x.ToString() + " - " + y.ToString());
     
-  }
+    }
   
 }
 
 Vertex object can be places in an array; however in our case I will use a list collection. The List<T> class has properties very similar to C# arrays, one key advantage is it can grow and shrink as the number of stored objects changes. The List<T> class is contained with the System.Collections.Generic namespace. The declaration would be something like this:
 
-public List<Vertex> Vertices;
+    public List<Vertex> Vertices;
 
 ###### Edges
 
 As you noticed graphs doesn't have a rigid organization as a tree. In a binary tree each node has a maximum two children, a graph each vertex can be connected to several other vertices. To model this free-form organization we need a different approach, two methods are commonly used for graphs: the adjacency matrix and the adjacency list. I chosen the second option for obvious reasons, it is simply dynamic. An easy way to implement an edge object is to model a class that the two vertices and the distance and additional cost between them. You can understand the cost as heuristic information, for example the one edge which represents an avenue with tree traffic lights can have a cost great than another one representing a parallel avenue with the same distance however with only one traffic light.
 
-public class Edge
+    public class Edge
 
-{
-    public Vertex Vertex1; // Vertex one
-    
-    public Vertex Vertex2; // Vertex two
-    
-    public float Distance; // DIstance or similar
-    
-    public float Cost; // Cost or multiplier factor
-    
-    // Contructor
-    
-    public Edge(Vertex Vertex1, Vertex Vertex2, float distance, float cost)
-    
     {
+        public Vertex Vertex1; // Vertex one
     
-        this.Vertex1 = Vertex1;
+        public Vertex Vertex2; // Vertex two
+    
+        public float Distance; // DIstance or similar
+    
+        public float Cost; // Cost or multiplier factor
+    
+        // Constructor
+    
+        public Edge(Vertex Vertex1, Vertex Vertex2, float distance, float cost)
+    
+        {
+    
+            this.Vertex1 = Vertex1;
         
-        this.Vertex2 = Vertex2;
+            this.Vertex2 = Vertex2;
         
-        this.Distance = distance;
+            this.Distance = distance;
         
-        this.Cost = cost;
+            this.Cost = cost;
         
+        }
+    
     }
-    
-}
 
 ###### Adjacency List
 
@@ -111,32 +111,34 @@ We use Dijkstra's algorithm by creating a table to store known distances from th
 
 Below I show how a Dikstra's algorithm class would be implemented.
 
-class Dijkstra
+    class Dijkstra
 
-{
+    {
 
-    public List<Vertex> Vertices;
+        public List<Vertex> Vertices;
     
-    public List<Edge> edges;
+        public List<Edge> edges;
 
-    // Constructor
+        // Constructor
     
-    public Dijkstra()
+        public Dijkstra()
     
-    {
+        {
     
-        Vertices = new List<Vertex>(); // Holds the Vertices
+            Vertices = new List<Vertex>(); // Holds the Vertices
         
-        edges = new List<Edge>(); // Holds the connections
+            edges = new List<Edge>(); // Holds the connections
         
-     }
+        }
      
-     // Dijkstra calculation algorithm
+        // Dijkstra calculation algorithm
      
-     public void Execute()
-     {
+        public void Execute()
+     
+        {
      
           while (Vertices.Count > 0)
+          
           {
               
               // For each smallset Vertex
@@ -152,7 +154,9 @@ class Dijkstra
              int size = adjacentVertices.Count;
 
              for (int i = 0; i < size; ++i)
+             
              {
+             
                  Vertex adjacent = adjacentVertices.ElementAt(i);
                  
                  float distance = Distance(smallest, adjacent) + smallest.distanceFromStart;
