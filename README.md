@@ -145,12 +145,12 @@ Below I show how a Dikstra's algorithm class would be implemented.
             Vertex smallest = ExtractSmallest();
             
             // Get the adjacents
-
-            List<Vertex> adjacentVertices = AdjacentRemainingVertices(smallest);
-              
-            // for each adjacent Vertex calculate the distance
-
-            int size = adjacentVertices.Count;
+            
+            List<Vertex> adjacentVertices = AdjacentRemainingVertices(smallest);
+            
+            // for each adjacent Vertex calculate the distance
+            
+            int size = adjacentVertices.Count;
             
             for (int i = 0; i < size; ++i)
             
