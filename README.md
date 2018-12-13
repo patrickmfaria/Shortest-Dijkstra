@@ -24,35 +24,35 @@ In some case you can give a weight to the edges. This number can represent physi
 ###### Vertices
 In most situations a vertex represents some real-world object, for example if it represents a city it may need store the name of the city. Thus, it is convenient tp represent a vertex by object of a vertex class.
 
-public class Vertex {
+    public class Vertex {
 
-    public string id; // Label
+        public string id; // Label
     
-    public float x; // Horizontal location on screen
+        public float x; // Horizontal location on screen
 
-    public float y; // Vertical location on screen
+        public float y; // Vertical location on screen
 
-    // Construcutor
+        // Construcutor
 
-    public Vertex(string id, float x, float y)
+        public Vertex(string id, float x, float y)
 
-    {
+        {
 
-        this.id = id;
+            this.id = id;
     
-        this.x = x;
+            this.x = x;
     
-        this.y = y;
+            this.y = y;
         
-  }
+        }
   
-    Public override string ToString() {
+        Public override string ToString() {
   
-        return (id + " - " + x.ToString() + " - " + y.ToString());
+            return (id + " - " + x.ToString() + " - " + y.ToString());
     
-    }
+        }
   
-}
+    }
 
 Vertex object can be places in an array; however in our case I will use a list collection. The List<T> class has properties very similar to C# arrays, one key advantage is it can grow and shrink as the number of stored objects changes. The List<T> class is contained with the System.Collections.Generic namespace. The declaration would be something like this:
 
@@ -141,15 +141,15 @@ Below I show how a Dikstra's algorithm class would be implemented.
           
           {
               
-              // For each smallset Vertex
+            // For each smallset Vertex
               
-              Vertex smallest = ExtractSmallest();
+            Vertex smallest = ExtractSmallest();
              
-              // Get the adjacents
+            // Get the adjacents
 
-              List<Vertex> adjacentVertices = AdjacentRemainingVertices(smallest);
+            List<Vertex> adjacentVertices = AdjacentRemainingVertices(smallest);
               
-             // for each adjacent Vertex calculate the distance
+                // for each adjacent Vertex calculate the distance
 
              int size = adjacentVertices.Count;
 
@@ -177,7 +177,7 @@ Below I show how a Dikstra's algorithm class would be implemented.
 
          }
 
-    …
+     …
 
 ## MyApplication
 Sometime ago I built an application which implements the Dijkstra's algorithm. I used Visual Studio 2008 and of course C#. I implemented with the classes I explained before, actually this application was the reason for this posting. I tried to become it user-friendly and coder-friendly as well. If this blog has made sense for you and you do need application like that I think would be a good idea you take a look the application running and its code behind.
