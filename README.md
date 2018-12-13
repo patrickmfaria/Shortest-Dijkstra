@@ -24,14 +24,14 @@ In some case you can give a weight to the edges. This number can represent physi
 ###### Vertices
 In most situations a vertex represents some real-world object, for example if it represents a city it may need store the name of the city. Thus, it is convenient tp represent a vertex by object of a vertex class.
 
-public class Vertex {
-  public string id; // Label
-  public float x; // Horizontal location on screen
-  public float y; // Vertical location on screen
-
-  // Construcutor
-  public Vertex(string id, float x, float y)
-  {
+> public class Vertex {
+>  public string id; // Label
+>  public float x; // Horizontal location on screen
+>  public float y; // Vertical location on screen
+>
+>  // Construcutor
+>  public Vertex(string id, float x, float y)
+>  {
     this.id = id;
     this.x = x;
     this.y = y;
